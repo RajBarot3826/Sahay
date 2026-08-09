@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahay (સહાય) — 3 Apps + 2 Web Portals Simulator</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Top Navigation Header -->
+    <header class="app-header">
+        <div class="logo-container">
+            <img src="logo.png" alt="Sahay Logo" class="brand-logo-img">
+            <div class="logo-text">
+                <h1>Sahay <span>(સહાય)</span></h1>
+                <p>National Emergency Ecosystem • PS-10 Golden Hour</p>
+            </div>
+        </div>
+        
+        <div class="header-badges">
+            <span class="badge level-badge"><i class="fa-solid fa-layer-group"></i> 3 Flutter Apps + 2 PHP Portals</span>
+            <span class="badge chapter-badge"><i class="fa-solid fa-location-dot"></i> Chapter: Bhavnagar</span>
+            <span class="badge team-badge"><i class="fa-solid fa-shield-halved"></i> Team InnovNation</span>
+        </div>
+
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="app-citizen-24"><i class="fa-solid fa-mobile-screen"></i> 1. Citizen App (24 Screens)</button>
+            <button class="tab-btn" data-tab="app-ambulance-21"><i class="fa-solid fa-truck-medical"></i> 2. Ambulance App (21 Screens)</button>
+            <button class="tab-btn" data-tab="app-police-24"><i class="fa-solid fa-building-shield"></i> 3. Police App (24 Screens)</button>
+            <button class="tab-btn" data-tab="web-hospital-er"><i class="fa-solid fa-hospital-user"></i> 4. Hospital ER Web (PHP)</button>
+            <button class="tab-btn" data-tab="web-admin-edar"><i class="fa-solid fa-chart-pie"></i> 5. Govt Admin Web (PHP)</button>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+
+        <!-- ================= APP 1: CITIZEN & DRIVER FLUTTER APP (24 SCREENS) ================= -->
+        <section id="app-citizen-24" class="tab-pane active">
+            <div class="grid-layout-2col">
+                <div class="card purple-card">
+                    <div class="card-header">
+                        <span class="pulse-indicator red"></span>
+                        <h2><i class="fa-solid fa-heart-pulse text-danger"></i> Sahay Citizen & Driver App (Flutter — 24 Screens)</h2>
+                        <span class="location-tag"><i class="fa-solid fa-user"></i> User: Raj Barot</span>
+                    </div>
+
+                    <div class="mockup-header-banner purple">
+                        <h3><i class="fa-solid fa-shield-cat"></i> GOLDEN HOUR RESPONSE SYSTEM</h3>
+                        <p>Every second counts. You can be the reason someone lives.</p>
+                    </div>
+
+                    <div class="citizen-app-buttons">
+                        <!-- SOS Action -->
+                        <button id="btn-sos-main" class="main-sos-banner-btn">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>EMERGENCY SOS</span>
+                            <small>Tap SOS to alert 108 & nearest responders</small>
+                        </button>
+
+                        <div class="quick-grid-actions">
+                            <button class="quick-action-item" onclick="triggerAiScan()">
+                                <i class="fa-solid fa-camera-viewfinder text-primary"></i>
+                                <span>AI Accident Scan</span>
+                            </button>
+                            <button class="quick-action-item" onclick="playVoicePrompt(1)">
+                                <i class="fa-solid fa-kit-medical text-danger"></i>
+                                <span>First Aid Assistant</span>
+                            </button>
+                            <button class="quick-action-item" onclick="switchTab('app-ambulance-21')">
+                                <i class="fa-solid fa-truck-medical text-success"></i>
+                                <span>Live Tracking</span>
+                            </button>
+                            <button class="quick-action-item">
+                                <i class="fa-solid fa-users text-amber"></i>
+                                <span>Nearby Responders</span>
+                            </button>
+                        </div>
+
+                        <!-- Good Samaritan Protection Card -->
+                        <div class="protection-card-banner">
+                            <div class="prot-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="prot-info">
+                                <h4>You Are Protected under MV Act Sec 134A</h4>
+                                <p>No harassment by police • No mandatory court appearance • Identity safe</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Analysis Simulation -->
+                    <div id="ai-analysis-sim" class="modal-sim-box hidden">
+                        <div class="modal-sim-header">
+                            <i class="fa-solid fa-robot text-primary"></i>
+                            <h3>AI ACCIDENT SCENE ANALYSIS RESULT</h3>
+                            <button class="close-modal" onclick="closeAiSim()">&times;</button>
+                        </div>
+                        <div class="modal-sim-body">
+                            <div class="severity-badge-high"><i class="fa-solid fa-triangle-exclamation"></i> HIGH SEVERITY INCIDENT</div>
+                            <p><strong>AI Confidence Score:</strong> 92%</p>
+                            <ul class="injury-list">
+                                <li><i class="fa-solid fa-check text-danger"></i> Unconscious Person Detected</li>
+                                <li><i class="fa-solid fa-check text-danger"></i> Possible Head Injury & Fracture</li>
+                                <li><i class="fa-solid fa-check text-danger"></i> Heavy Arterial Bleeding</li>
+                            </ul>
+                            <button class="btn-primary-full red" onclick="confirmAiAlert()">Send Alert & Get Help Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guided AI First Aid & Learn Modules -->
+                <div class="card purple-card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-graduation-cap text-primary"></i> AI Guided First Aid & Training</h2>
+                    </div>
+
+                    <div class="learn-modules-grid">
+                        <div class="module-item">
+                            <i class="fa-solid fa-suitcase-medical text-danger"></i>
+                            <h4>First Aid Basics</h4>
+                            <small>12 Lessons</small>
+                        </div>
+                        <div class="module-item">
+                            <i class="fa-solid fa-heart-circle-bolt text-danger"></i>
+                            <h4>CPR Training</h4>
+                            <small>8 Lessons</small>
+                        </div>
+                        <div class="module-item">
+                            <i class="fa-solid fa-bandage text-warning"></i>
+                            <h4>Stop Bleeding</h4>
+                            <small>6 Lessons</small>
+                        </div>
+                        <div class="module-item">
+                            <i class="fa-solid fa-truck-ramp-box text-success"></i>
+                            <h4>Emergency Care</h4>
+                            <small>10 Lessons</small>
+                        </div>
+                    </div>
+
+                    <!-- CPR Rhythm Metronome -->
+                    <div class="cpr-trainer" style="margin-top: 1.5rem;">
+                        <div class="cpr-header">
+                            <i class="fa-solid fa-heart-pulse"></i> 100 BPM CPR Rhythm Metronome Guide
+                        </div>
+                        <button id="cpr-metronome-btn" class="metronome-btn">
+                            <i class="fa-solid fa-play"></i> Start CPR Metronome Beats
+                        </button>
+                        <div class="cpr-beat-visualizer" id="cpr-beater">
+                            <span>PUSH HARD & FAST TO THE BEAT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= APP 2: AMBULANCE DRIVER FLUTTER APP (21 SCREENS) ================= -->
+        <section id="app-ambulance-21" class="tab-pane">
+            <div class="grid-layout-2col">
+                <div class="card blue-card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-truck-medical text-primary"></i> Ambulance Driver Response System (Flutter — 21 Screens)</h2>
+                        <span class="status-chip success">Driver: Rahul Sharma | AMB-10245</span>
+                    </div>
+
+                    <div class="mockup-header-banner blue">
+                        <h3><i class="fa-solid fa-truck-fast"></i> NEW EMERGENCY MISSION DISPATCH</h3>
+                        <p>High Priority Accident Reported • NH-8E Km 14 (Chitra Crossing)</p>
+                    </div>
+
+                    <div class="mission-details-box">
+                        <div class="mission-metric-row">
+                            <div><span class="lbl">Victim Count:</span> <strong>2 Persons</strong></div>
+                            <div><span class="lbl">Severity:</span> <strong class="text-danger">High Bleeding</strong></div>
+                            <div><span class="lbl">Reported By:</span> <strong>Amit Verma (Bystander)</strong></div>
+                        </div>
+
+                        <div class="patient-vitals-card">
+                            <h4><i class="fa-solid fa-heart-pulse text-danger"></i> Patient Vitals On-Scene:</h4>
+                            <div class="vitals-grid">
+                                <div><small>BP</small><strong>90/60</strong></div>
+                                <div><small>Pulse</small><strong>124 BPM</strong></div>
+                                <div><small>SpO2</small><strong>89%</strong></div>
+                                <div><small>Blood Group</small><strong>B+</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons-row" style="margin-top: 1rem;">
+                            <button class="btn-action green" onclick="confirmHospitalSelect()"><i class="fa-solid fa-hospital"></i> Select Hospital & Send Pre-Alert</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card blue-card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-list-check text-success"></i> Equipment & Vehicle Checklist</h2>
+                    </div>
+
+                    <div class="checklist-items">
+                        <div class="chk-item"><i class="fa-solid fa-circle-check text-success"></i> Oxygen Cylinder: OK (100%)</div>
+                        <div class="chk-item"><i class="fa-solid fa-circle-check text-success"></i> First Aid Kit: OK</div>
+                        <div class="chk-item"><i class="fa-solid fa-circle-check text-success"></i> AED / Defibrillator: OK</div>
+                        <div class="chk-item"><i class="fa-solid fa-circle-check text-success"></i> Spine Board & Cervical Collars: Available</div>
+                        <div class="chk-item"><i class="fa-solid fa-circle-check text-success"></i> Suction Machine: OK</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= APP 3: POLICE CONTROL RESPONSE APP (24 SCREENS) ================= -->
+        <section id="app-police-24" class="tab-pane">
+            <div class="grid-layout-2col">
+                <div class="card navy-card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-building-shield text-purple"></i> Police Control Response System (Flutter — 24 Screens)</h2>
+                        <span class="status-chip success">Inspector Raj Singh | Badge RJPS-1245</span>
+                    </div>
+
+                    <div class="mockup-header-banner navy">
+                        <h3><i class="fa-solid fa-shield-cat"></i> POLICE PATROL & PCR COMMAND APP</h3>
+                        <p>Sector 12 Highway Patrol • Vehicle RJ14 PC 1234</p>
+                    </div>
+
+                    <div class="police-sim-box">
+                        <div class="scan-action-box">
+                            <h4><i class="fa-solid fa-camera text-primary"></i> Field Immunity Pass Scanner</h4>
+                            <button id="sim-police-scan-btn" class="scan-action-btn" style="width: 100%; margin-top: 10px;">
+                                <i class="fa-solid fa-qrcode"></i> Scan Bystander Good Samaritan Pass
+                            </button>
+                        </div>
+
+                        <div id="police-scan-result" class="scan-result hidden" style="margin-top: 15px;">
+                            <div class="verified-banner">
+                                <i class="fa-solid fa-shield-check text-success"></i>
+                                <div>
+                                    <h3>IMMUNITY VERIFIED — DO NOT DETAIN</h3>
+                                    <p>Good Samaritan Protection Active under Section 134A Motor Vehicles Act</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card navy-card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-car-side text-warning"></i> Stolen Vehicle & Evidence Capture</h2>
+                    </div>
+
+                    <div class="edar-sync-box">
+                        <h4><i class="fa-solid fa-camera text-primary"></i> Evidence Capture & eDAR Database Auto-Sync:</h4>
+                        <p>Vehicle No: <strong>RJ 14 XX 5678</strong> | Type: Pulsar NS 160 | Color: Black Red</p>
+                        <p>Incident Telematics logged directly to MoRTH eDAR portal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WEB PORTAL 1: HOSPITAL ER DOCTOR (PHP) ================= -->
+        <section id="web-hospital-er" class="tab-pane">
+            <div class="grid-layout-2col">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-hospital-user text-success"></i> Hospital ER Casualty Portal (PHP Web)</h2>
+                        <span class="status-chip success">Sir Takhtasinhji (Sir T.) General Hospital</span>
+                    </div>
+
+                    <!-- Real-Time Web Push Banner -->
+                    <div class="web-push-alert-sim" id="hospital-push-banner">
+                        <div class="push-header">
+                            <i class="fa-solid fa-bell text-danger pulse"></i>
+                            <h3>REAL-TIME WEB PUSH ALERT (WebSocket Active)</h3>
+                            <button class="sound-chime-btn" onclick="playHospitalChime()"><i class="fa-solid fa-volume-high"></i> Test ER Sound Chime</button>
+                        </div>
+                        <div class="push-body">
+                            <p><strong>INCOMING CRITICAL TRAUMA PATIENT</strong> (Approaching within 3.5 km)</p>
+                            <p>ETA: 4 Mins | Sir T. PMSSY Super Specialty Block Pre-Notified</p>
+                        </div>
+                    </div>
+
+                    <div class="scanner-box" style="margin-top: 1.5rem;">
+                        <p class="scan-instructions">Scan Bystander's Sahay QR Passport to grant instant green-channel ER admission.</p>
+                        
+                        <button id="sim-scan-btn" class="scan-action-btn"><i class="fa-solid fa-camera"></i> Scan Sahay Bystander QR Passport</button>
+
+                        <div id="scan-result-box" class="scan-result hidden">
+                            <div class="verified-banner">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <div>
+                                    <h3>IMMUNITY VERIFIED — DO NOT DETAIN</h3>
+                                    <p>Good Samaritan Immunity Active (MV Act Sec 134A & SC SaveLIFE 2016)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-hospital-post text-warning"></i> Pre-Arrival Trauma Triage Feed</h2>
+                    </div>
+
+                    <div class="incident-log">
+                        <div class="log-entry">
+                            <div class="log-time">17:27:10</div>
+                            <div class="log-detail">
+                                <h4><i class="fa-solid fa-car-burst text-danger"></i> High-Speed Crash: Chitra Highway Crossing</h4>
+                                <p>Bystander Pass #9921 Verified • 128-Slice CT & Blood Bank Pre-Notified</p>
+                            </div>
+                            <span class="log-tag green">ETA < 4 Mins</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WEB PORTAL 2: GOVERNMENT ADMIN WEB (PHP) ================= -->
+        <section id="web-admin-edar" class="tab-pane">
+            <div class="pitch-container">
+                <div class="pitch-header">
+                    <img src="logo.png" alt="Sahay Logo" class="pitch-logo-hero">
+                    <h2>Sahay Government & Master Admin Console (PHP)</h2>
+                    <p>eDAR Crash Database Analytics • Blackspot GIS Mapping • National Scale-Up</p>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value text-success">3 Flutter Apps</div>
+                        <div class="metric-label">Citizen, Ambulance & Police</div>
+                        <small>Matching 24, 21, 24 UI screens</small>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-value text-primary">2 PHP Portals</div>
+                        <div class="metric-label">Hospital ER & Govt Admin</div>
+                        <small>WebSockets & Push API active</small>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-value text-warning">< 5 Mins</div>
+                        <div class="metric-label">Highway Response</div>
+                        <small>NH-8E & SH-25 Bhavnagar</small>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-value text-danger">50,000+</div>
+                        <div class="metric-label">Target Lives Saved</div>
+                        <small>National NHAI Deployment</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
